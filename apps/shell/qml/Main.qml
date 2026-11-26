@@ -10,16 +10,23 @@ ApplicationWindow {
     height: 650
     title: "CHARON"
 
-    property int pendingAccentR: 244
-    property int pendingAccentB: 158
-    property int pendingAccentG: 140
-    property int pendingBGR: 37
-    property int pendingBGB: 19
-    property int pendingBGG: 41
+    property int pendingAccentR: Math.round(Config.accentColor.r * 255)
+    property int pendingAccentB: Math.round(Config.accentColor.b * 255)
+    property int pendingAccentG: Math.round(Config.accentColor.g * 255)
+    property int pendingBGR: Math.round(Config.backgroundColor.r * 255)
+    property int pendingBGB: Math.round(Config.backgroundColor.b * 255)
+    property int pendingBGG: Math.round(Config.backgroundColor.g * 255)
     property color pendingAccentColor: Qt.rgba(pendingAccentR / 255, pendingAccentG / 255, pendingAccentB / 255, 1)
     property color pendingBGColor: Qt.rgba(pendingBGR / 255, pendingBGG / 255, pendingBGB / 255, 1)
 
-
+    function resetPendingColors() {
+        pendingAccentR = 244
+        pendingAccentG = 140
+        pendingAccentB = 158
+        pendingBGR = 37
+        pendingBGG = 19
+        pendingBGB = 41
+    }
 
     color: Config.backgroundColor
 
@@ -168,6 +175,16 @@ ApplicationWindow {
                 radius: 12
             }
         }
-    }
 
+        Button {
+            height: 20
+            width: 100
+            text: "reset"
+
+            onClicked: {
+                Config.restoreDefaults()
+                resetPendingColors()
+            }
+        }
+    }
 }

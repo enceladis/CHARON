@@ -26,6 +26,6 @@ QtObject {
     //Restoring defaults
     function restoreDefaults() {
         stored.accentColor = defaultAccentColor
-        stored.backgroundColor = defaultAccentColor
+        stored.backgroundColor = defaultBackgroundColor
     }
 }
