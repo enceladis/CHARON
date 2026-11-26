@@ -8,7 +8,7 @@ fn main() {
 
     if let Some(engine) = engine.as_mut() {
         engine.load(&QUrl::from(
-            "qrc:/qt/qml/org/ode/shell/qml/Main.qml",
+            "qrc:/qt/qml/org/charon/shell/qml/Main.qml",
         ));
     }
 
