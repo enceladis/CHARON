@@ -1,7 +1,7 @@
-# ODE
+# CHARON
 
 <p align="center">
-  <img src="assets/ODE-default-wallpaper.png" width="800">
+  <img src="assets/CHARON-default-wallpaper.png" width="800">
 </p>
 
 <p align="center">
@@ -10,11 +10,11 @@
 
 ## About
 
-ODE is an open-source desktop environment project written in Rust, with the goal of creating a modern, customizable, and visually appealing Linux desktop experience.
+CHARON is an open-source desktop environment project written in Rust, with the goal of creating a modern, customizable, and visually appealing Linux desktop experience.
 
 ## Development
 
-ODE is currently in *early* development.
+CHARON is currently in *early* development.
 
 ## Project Goals
 

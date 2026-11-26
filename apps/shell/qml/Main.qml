@@ -7,7 +7,7 @@ ApplicationWindow {
     visible: true
     width: 1000
     height: 650
-    title: "ODE"
+    title: "CHARON"
 
     color: "#101014"
 
