@@ -6,6 +6,7 @@ import QtCore
 
 QtObject {
     //defaults
+    property color defaultAccentColor: "#F48C9E"
     // Backgrounds
     property color defaultWindowBackgroundColor: "#160D22"
     property color defaultContentBackgroundColor: "#21122E"
@@ -19,12 +20,10 @@ QtObject {
     property color defaultTextColor: "#E8DCEB"
 
     // Button colors
-    property color defaultButtonColor: "#BD5A91"
-    property color defaultButtonHoverColor: "#D66D9F"
-    property color defaultButtonPressedColor: "#984775"
     property color defaultButtonTextColor: "#FFF0F5"   
 
     //Public configuration properties
+    property alias accentColor: stored.accentColor
     //backgrounds
     property alias windowBackgroundColor: stored.windowBackgroundColor
     property alias contentBackgroundColor: stored.contentBackgroundColor
@@ -48,6 +47,7 @@ QtObject {
         id: stored
 
         category: "Appearance"
+        property color accentColor: "#F48C9E"
         property color windowBackgroundColor: "#140C20"
         property color contentBackgroundColor: "#1B1123"
         property color sidebarBackgroundColor: "#201428"

@@ -10,6 +10,7 @@ fn main() {
             .qml_file("qml/DesktopPage.qml")
             .qml_file("qml/NotificationsPage.qml")
             .qml_file("qml/AboutPage.qml")
+            .qml_file("qml/SelectionIndicator.qml")
             .qml_file(QmlFile::from("qml/Config.qml").singleton(true)),
     )
     .build();

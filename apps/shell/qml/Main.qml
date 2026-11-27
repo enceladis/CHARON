@@ -13,7 +13,5 @@ ApplicationWindow {
 
     color: Config.backgroundColor
 
-    SettingsWindow {
-
-    }
+    SettingsWindow {}
 }

@@ -48,6 +48,8 @@ ApplicationWindow {
                 Layout.preferredWidth: 180
                 Layout.fillHeight: true
                 color: Config.sidebarBackgroundColor
+                border.width: 1
+                border.color: Qt.lighter(Config.sidebarBackgroundColor, 1.25)
 
                 ScrollView {
                     id: sidebarScroll
@@ -66,13 +68,17 @@ ApplicationWindow {
                             text: "General"
                             
                             background: Rectangle {
-                                radius: 12
+                                radius: 50
 
                                 color: parent.down
-                                    ? Config.buttonPressedColor
+                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
                                     : parent.hovered
-                                        ? Config.buttonHoverColor
-                                        : Config.buttonColor
+                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
+                                        : Config.sidebarBackgroundColor
+
+                                SelectionIndicator {
+                                    selected: root.currentPage === "General"
+                                }
                             }
 
                             contentItem: Text {
@@ -90,13 +96,17 @@ ApplicationWindow {
                             text: "Appearance"
 
                             background: Rectangle {
-                                radius: 12
+                                radius: 50
 
                                 color: parent.down
-                                    ? Config.buttonPressedColor
+                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
                                     : parent.hovered
-                                        ? Config.buttonHoverColor
-                                        : Config.buttonColor
+                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
+                                        : Config.sidebarBackgroundColor
+
+                                SelectionIndicator {
+                                    selected: root.currentPage === "Appearance"
+                                }
                             }
 
                             contentItem: Text {
@@ -114,13 +124,17 @@ ApplicationWindow {
                             text: "Desktop"
 
                             background: Rectangle {
-                                radius: 12
+                                radius: 50
 
                                 color: parent.down
-                                    ? Config.buttonPressedColor
+                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
                                     : parent.hovered
-                                        ? Config.buttonHoverColor
-                                        : Config.buttonColor
+                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
+                                        : Config.sidebarBackgroundColor
+
+                                SelectionIndicator {
+                                    selected: root.currentPage === "Desktop"
+                                }
                             }
 
                             contentItem: Text {
@@ -138,13 +152,17 @@ ApplicationWindow {
                             text: "Notifications"
 
                             background: Rectangle {
-                                radius: 12
+                                radius: 50
 
                                 color: parent.down
-                                    ? Config.buttonPressedColor
+                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
                                     : parent.hovered
-                                        ? Config.buttonHoverColor
-                                        : Config.buttonColor
+                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
+                                        : Config.sidebarBackgroundColor
+
+                                SelectionIndicator {
+                                    selected: root.currentPage === "Notifications"
+                                }
                             }
 
                             contentItem: Text {
@@ -162,13 +180,17 @@ ApplicationWindow {
                             text: "About"
 
                             background: Rectangle {
-                                radius: 12
+                                radius: 50
 
                                 color: parent.down
-                                    ? Config.buttonPressedColor
+                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
                                     : parent.hovered
-                                        ? Config.buttonHoverColor
-                                        : Config.buttonColor
+                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
+                                        : Config.sidebarBackgroundColor
+
+                                SelectionIndicator {
+                                    selected: root.currentPage === "About"
+                                }
                             }
 
                             contentItem: Text {
@@ -189,7 +211,8 @@ ApplicationWindow {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 color: Config.contentBackgroundColor
-                radius: 15
+                border.width: 1
+                border.color: Qt.lighter(Config.contentBackgroundColor, 1.25)
 
                 StackLayout {
                     anchors.fill: parent
