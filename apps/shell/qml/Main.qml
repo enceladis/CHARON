@@ -51,11 +51,4 @@ ApplicationWindow {
 
         onCloseRequest: root.open = false
     }
-
-    WallpaperWheel {
-        width: parent.width * 0.75
-        height: parent.height * 0.75
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
 }

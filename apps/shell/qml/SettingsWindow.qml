@@ -48,7 +48,10 @@ ApplicationWindow {
                     color: Config.accentColor
                 }
 
-                onClicked: closeRequest()
+                onClicked: {
+                    closeRequest()
+                    root.currentPage = "General"
+                }
             }
         }
 

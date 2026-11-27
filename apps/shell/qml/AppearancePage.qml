@@ -8,10 +8,29 @@ Item {
     Layout.fillWidth: true
     Layout.fillHeight: true
 
-    Text {
-        text: "Appearance"
-        color: Config.titleColor
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    Rectangle {
+        anchors.fill: parent
+        color: "transparent"
+
+        ScrollView {
+            id: generalPage
+            anchors.fill: parent
+            anchors.margins: 6
+
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+
+            ColumnLayout {
+                width: generalPage.width
+                spacing: 6
+
+                Rectangle {
+                color: Qt.lighter(Config.defaultContentBackgroundColor, 1.1)
+                Layout.fillWidth: true
+                height: 200
+                radius: 15
+                    WallpaperWheel{}
+                }
+            }
+        }
     }
 }
