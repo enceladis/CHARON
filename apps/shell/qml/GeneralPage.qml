@@ -1,17 +1,84 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import org.charon.shell
 
 Item {
     id: root
     Layout.fillWidth: true
     Layout.fillHeight: true
 
-    Text {
-        text: "General"
-        color: Config.titleColor
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    Rectangle {
+        anchors.fill: parent
+        color: "transparent"
+
+        ScrollView {
+            id: generalPage
+            anchors.fill: parent
+            anchors.margins: 6
+
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+
+            ColumnLayout {
+                width: generalPage.width - 12
+                spacing: 6
+
+                Rectangle {
+                color: Qt.lighter(Config.defaultContentBackgroundColor, 1.1)
+                Layout.fillWidth: true
+                height: 100
+                radius: 15
+
+                    Text {
+                        text: "Enable Animations"
+                        color: Config.subtitleColor
+                        anchors.top: parent.top
+                        anchors.topMargin: 15
+                        anchors.left: parent.left
+                        anchors.leftMargin: 15
+                        font.pixelSize: 15
+                    }
+
+                    Text {
+                        text: "Turns animations on or off."
+                        color: Config.textColor
+                        anchors.top: parent.top
+                        anchors.topMargin: 50
+                        anchors.left: parent.left
+                        anchors.leftMargin: 15
+                        font.pixelSize: 12
+                    }
+
+                    Text {
+                        text: "OFF"
+                        color: Config.titleColor
+                        anchors.right: parent.right
+                        anchors.rightMargin: 200
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    CharonSwitch {
+                        id: animationToggle
+
+                        anchors.right: parent.right
+                        anchors.rightMargin: 125
+                        anchors.verticalCenter: parent.verticalCenter
+
+                    checked: Config.animationsEnabled
+
+                        onCheckedChanged: {
+                            Config.animationsEnabled = checked
+                        }
+                    }
+
+                    Text {
+                        text: "ON"
+                        color: Config.titleColor
+                        anchors.right: parent.right
+                        anchors.rightMargin: 100
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+        }
     }
 }

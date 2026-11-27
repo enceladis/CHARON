@@ -22,6 +22,10 @@ QtObject {
     // Button colors
     property color defaultButtonTextColor: "#FFF0F5"   
 
+    //animations
+    property bool defaultAnimationsEnabled: true
+    property int defaultAnimationSpeed: 1
+
     //Public configuration properties
     property alias accentColor: stored.accentColor
     //backgrounds
@@ -41,6 +45,10 @@ QtObject {
     property alias buttonHoverColor: stored.buttonHoverColor
     property alias buttonPressedColor: stored.buttonPressedColor
     property alias buttonTextColor: stored.buttonTextColor
+
+    //animations
+    property alias animationsEnabled: stored.animationsEnabled
+    property alias animationSpeed: stored.animationSpeed
 
     //persistant storage
     property var stored: Settings {
@@ -64,11 +72,21 @@ QtObject {
         property color buttonHoverColor: "#B45E91"
         property color buttonPressedColor: "#843E6C"
         property color buttonTextColor: "#E8DCEB"
+
+        //animations
+        property bool animationsEnabled: true
+        property int defaultAnimationSpeed: 1
         
     }
 
     //Restoring defaults
     function restoreDefaults() {
         
+    }
+    function restoreColors() {
+
+    }
+    function restoreAnimations() {
+
     }
 }

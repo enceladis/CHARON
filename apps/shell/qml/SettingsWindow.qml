@@ -53,7 +53,6 @@ ApplicationWindow {
 
                 ScrollView {
                     id: sidebarScroll
-
                     anchors.fill: parent
                     anchors.margins: 4
 
