@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import org.charon.shell
 
 ApplicationWindow {
     id: root
+
+    signal closeRequest
 
     width: 1000
     height: 600
@@ -26,14 +27,28 @@ ApplicationWindow {
             color: Config.topBarBackgroundColor
 
             Text {
-                anchors.left: parent.left
+                anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: 16
 
                 text: "Settings"
                 color: Config.titleColor
                 font.pixelSize: 20
                 font.bold: true
+            }
+
+            Button {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+
+                background: Rectangle {
+                    width: 20
+                    height: 20
+                    radius: 10
+                    color: Config.accentColor
+                }
+
+                onClicked: closeRequest()
             }
         }
 

@@ -6,6 +6,7 @@ import QtCore
 
 QtObject {
     //defaults
+    //colors
     property color defaultAccentColor: "#F48C9E"
     // Backgrounds
     property color defaultWindowBackgroundColor: "#160D22"
@@ -22,9 +23,13 @@ QtObject {
     // Button colors
     property color defaultButtonTextColor: "#FFF0F5"   
 
+    //movement
     //animations
     property bool defaultAnimationsEnabled: true
     property int defaultAnimationSpeed: 1
+
+    //wallpaper
+    property string defaultWallpaperPath: "qrc:/qt/qml/org/charon/shell/assets/wallpapers/background.png"
 
     //Public configuration properties
     property alias accentColor: stored.accentColor
@@ -49,6 +54,9 @@ QtObject {
     //animations
     property alias animationsEnabled: stored.animationsEnabled
     property alias animationSpeed: stored.animationSpeed
+
+    //wallpaper
+    property alias wallpaperPath: stored.wallpaperPath
 
     //persistant storage
     property var stored: Settings {
@@ -75,17 +83,22 @@ QtObject {
 
         //animations
         property bool animationsEnabled: true
-        property int defaultAnimationSpeed: 1
+        property int animationSpeed: 1
+
+        //wallpaper
+        property string wallpaperPath: "qrc:/qt/qml/org/charon/shell/assets/wallpapers/background.png"
         
     }
 
     //Restoring defaults
     function restoreDefaults() {
-        
+        stored.wallpaperPath = defaultWallpaperPath
     }
+
     function restoreColors() {
 
     }
+
     function restoreAnimations() {
 
     }

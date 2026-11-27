@@ -12,7 +12,13 @@ fn main() {
             .qml_file("qml/AboutPage.qml")
             .qml_file("qml/SelectionIndicator.qml")
             .qml_file("qml/CharonSwitch.qml")
+            .qml_file("qml/WallpaperWheel.qml")
+            .qml_file("qml/Wallpaper.qml")
             .qml_file(QmlFile::from("qml/Config.qml").singleton(true)),
     )
+    .qrc_resources(["../../assets/wallpapers/CHARON-default-wallpaper.png"])
+    .qrc_resources(["../../assets/wallpapers/CHARON-default-background.png"])
+    .qrc_resources(["../../assets/wallpapers/CHARON-cursive-background.png"])
+    .qrc_resources(["../../assets/wallpapers/background.png"])
     .build();
 }

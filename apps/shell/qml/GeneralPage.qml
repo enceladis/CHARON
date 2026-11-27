@@ -19,7 +19,7 @@ Item {
             ScrollBar.vertical.policy: ScrollBar.AsNeeded
 
             ColumnLayout {
-                width: generalPage.width - 12
+                width: generalPage.width
                 spacing: 6
 
                 Rectangle {
