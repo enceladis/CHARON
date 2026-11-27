@@ -175,6 +175,7 @@ ApplicationWindow {
                 radius: 12
             }
         }
+<<<<<<< HEAD
 
         Button {
             text: "revert"
@@ -187,5 +188,18 @@ ApplicationWindow {
             }
         }
     }
+=======
+>>>>>>> 629d15a7aa5e7df94ee8460015c36b1e26699bb8
 
+        Button {
+            height: 20
+            width: 100
+            text: "reset"
+
+            onClicked: {
+                Config.restoreDefaults()
+                resetPendingColors()
+            }
+        }
+    }
 }
