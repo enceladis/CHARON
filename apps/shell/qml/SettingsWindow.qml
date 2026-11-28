@@ -5,7 +5,7 @@ import QtQuick.Layouts
 ApplicationWindow {
     id: root
 
-    signal closeRequest
+    signal closeSettings()
 
     width: 1000
     height: 600
@@ -49,7 +49,7 @@ ApplicationWindow {
                 }
 
                 onClicked: {
-                    closeRequest()
+                    root.closeSettings()
                     root.currentPage = "General"
                 }
             }

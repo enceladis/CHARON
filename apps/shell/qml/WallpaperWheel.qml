@@ -7,7 +7,6 @@ Item {
     id: root
 
     anchors.fill: parent
-    anchors.centerIn: parent
 
     property real cardWidth: cardHeight * 2
     property real cardHeight: height * 0.65
@@ -149,6 +148,8 @@ Item {
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
                         visible: false
+                        smooth: true
+                        mipmap: true
                     }
 
                     Item {

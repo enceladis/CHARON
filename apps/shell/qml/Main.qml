@@ -9,8 +9,6 @@ ApplicationWindow {
     width: 1000
     height: 700
 
-    property bool open: false
-
     Wallpaper {
         id: wallpaper
     }
@@ -40,15 +38,40 @@ ApplicationWindow {
             anchors.horizontalCenter: parent.horizontalCenter
         }
         onClicked: {
-            root.open === false
-            ? root.open = true
-            : root.open = false
+            settingsLoader.active = true
         }
     }   
 
-    SettingsWindow {
-        visible: root.open
+    Loader {
+        id: settingsLoader
 
-        onCloseRequest: root.open = false
+        active: false
+        source: "SettingsWindow.qml"
+
+        onLoaded: {
+            item.closeSettings.connect(() => {
+                settingsLoader.active = false
+            })
+        }
+    }
+
+    Rectangle {
+        height: Config.islandHeight
+        width: Config.islandWidth
+        anchors.top: parent.top
+        anchors.topMargin: Config.dockMargin
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "transparent"
+        Island{}
+    }
+
+    Rectangle {
+        height: Config.dockHeight
+        width: Config.dockWidth
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Config.dockMargin
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "transparent"
+        Dock{}
     }
 }
