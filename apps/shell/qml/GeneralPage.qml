@@ -23,14 +23,14 @@ Item {
                 spacing: 6
 
                 Rectangle {
-                color: Qt.lighter(Config.defaultContentBackgroundColor, 1.1)
+                color: Config.secondaryWindowColor
                 Layout.fillWidth: true
                 height: 100
                 radius: 15
 
                     Text {
                         text: "Enable Animations"
-                        color: Config.subtitleColor
+                        color: Config.accentColor
                         anchors.top: parent.top
                         anchors.topMargin: 15
                         anchors.left: parent.left
@@ -50,7 +50,7 @@ Item {
 
                     Text {
                         text: "OFF"
-                        color: Config.titleColor
+                        color: Config.highlightColor
                         anchors.right: parent.right
                         anchors.rightMargin: 200
                         anchors.verticalCenter: parent.verticalCenter
@@ -72,7 +72,7 @@ Item {
 
                     Text {
                         text: "ON"
-                        color: Config.titleColor
+                        color: Config.highlightColor
                         anchors.right: parent.right
                         anchors.rightMargin: 100
                         anchors.verticalCenter: parent.verticalCenter

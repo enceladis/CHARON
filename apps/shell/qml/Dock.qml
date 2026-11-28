@@ -16,7 +16,7 @@ Item {
         height: Config.dockHeight
         width: Config.dockWidth
         radius: Config.cornerRadius
-        color: Config.sectionBackgroundColor
+        color: Config.windowColor
 
         Button {
             id: spotlightOpener
@@ -29,8 +29,8 @@ Item {
             background: Rectangle{
                 anchors.fill: parent
                 color: parent.hovered
-                    ? Qt.lighter(Config.sectionBackgroundColor, 1.2)
-                    : Config.sectionBackgroundColor
+                    ? Qt.lighter(Config.windowColor, 1.3)
+                    : Config.windowColor
                 radius: Config.cornerRadius
             }
 

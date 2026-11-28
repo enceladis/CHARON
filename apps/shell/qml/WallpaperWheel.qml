@@ -75,9 +75,6 @@ Item {
     function takeFocus() {
         root.forceActiveFocus()
     }
-    function applyWallpaper() {
-        Config.wallpaperPath = root.wallpapers[root.currentIndex]
-    }
 
     property var wallpapers: [
         "qrc:/qt/qml/org/charon/shell/assets/wallpapers/background.png",
@@ -136,6 +133,7 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                             root.currentIndex = index
+                            Config.wallpaperPath = wallpapers[index]
                             root.forceActiveFocus()
                         }
                     }
@@ -192,9 +190,9 @@ Item {
             radius: height / 2
 
             color: parent.down
-                ? Config.buttonPressedColor
+                ? Qt.darker(Config.buttonColor, 1.2)
                 : parent.hovered
-                ? Config.buttonHoverColor
+                ? Qt.lighter(Config.buttonColor, 1.2)
                 : Config.buttonColor
         }
 
@@ -208,7 +206,7 @@ Item {
         }
 
         onClicked: {
-            applyWallpaper()
+            Config.applyWallpaper()
         }
     }
 }

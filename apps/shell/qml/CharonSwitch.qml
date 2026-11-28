@@ -17,10 +17,10 @@ Switch {
 
         radius: height / 2
         color: root.checked
-            ? Config.accentColor
-            : Qt.darker(Config.contentBackgroundColor, 1.1)
+            ? Config.highlightColor
+            : Qt.darker(Config.secondaryWindowColor, 1.1)
 
-        border.color: Qt.lighter(Config.contentBackgroundColor, 1.2)
+        border.color: Qt.lighter(Config.secondaryWindowColor, 1.2)
         border.width: 1
 
         Rectangle {
@@ -35,7 +35,7 @@ Switch {
                 ? parent.width - width - 3
                 : 3
 
-            color: Config.buttonTextColor
+            color: Config.textColor
 
             Behavior on x {
                 NumberAnimation {

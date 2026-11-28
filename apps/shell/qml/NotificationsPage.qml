@@ -10,7 +10,7 @@ Item {
 
     Text {
         text: "Notifications"
-        color: Config.titleColor
+        color: Config.highlightColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

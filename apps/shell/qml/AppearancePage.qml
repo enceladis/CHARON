@@ -24,7 +24,7 @@ Item {
                 spacing: 6
 
                 Rectangle {
-                color: Qt.lighter(Config.defaultContentBackgroundColor, 1.1)
+                color: Qt.lighter(Config.secondaryWindowColor, 1.1)
                 Layout.fillWidth: true
                 height: 200
                 radius: 15

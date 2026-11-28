@@ -7,13 +7,12 @@ Item {
     id: root
 
     anchors.fill: parent
-    anchors.centerIn: parent
 
     Rectangle {
         height: Config.islandHeight
         width: Config.islandWidth
         radius: Config.cornerRadius
-        color: Config.sectionBackgroundColor
+        color: Config.windowColor
 
         Text {
             text: "Island"

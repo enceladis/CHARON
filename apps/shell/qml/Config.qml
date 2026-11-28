@@ -7,25 +7,18 @@ import QtCore
 QtObject {
     //defaults
     //colors
-    property color defaultAccentColor: "#F48C9E"
+    property color defaultAccentColor: "#E68BAE"
+    property color defaultHighlightColor: "#F27DA7"
 
     // Background colors
-    property color defaultWindowBackgroundColor: "#160D22"
-    property color defaultContentBackgroundColor: "#21122E"
-    property color defaultSidebarBackgroundColor: "#291735"
-    property color defaultTopBarBackgroundColor: "#321B3A"
-    property color defaultSectionBackgroundColor: "#432342"
+    property color defaultWindowColor: "#1B1124"
+    property color defaultSecondaryWindowColor: "#35213F"
 
     // Text colors
-    property color defaultTitleColor: "#F77DAA"
-    property color defaultSubtitleColor: "#F5A0BC"
-    property color defaultTextColor: "#E8DCEB"
+    property color defaultTextColor: "#e7c8e1"
 
     // Button colors
-    property color defaultButtonColor: "#A34D83"
-    property color defaultButtonHoverColor: "#B45E91"
-    property color defaultButtonPressedColor: "#843E6C"
-    property color defaultButtonTextColor: "#FFF0F5"   
+    property color defaultButtonColor: "#cf70c6"
 
     //animations
     property bool defaultAnimationsEnabled: true
@@ -45,66 +38,55 @@ QtObject {
     //corners n stuff
     property int defaultCornerRadius: 15
 
-    //Public configuration properties
-    property alias accentColor: stored.accentColor
+    //Live config
+    property color accentColor: stored.accentColor
+    property color highlightColor: stored.highlightColor
+
     //backgrounds
-    property alias windowBackgroundColor: stored.windowBackgroundColor
-    property alias contentBackgroundColor: stored.contentBackgroundColor
-    property alias sidebarBackgroundColor: stored.sidebarBackgroundColor
-    property alias topBarBackgroundColor: stored.topBarBackgroundColor
-    property alias sectionBackgroundColor: stored.sectionBackgroundColor
+    property color windowColor: stored.windowColor
+    property color secondaryWindowColor: stored.secondaryWindowColor
 
     // Text colors
-    property alias titleColor: stored.titleColor
-    property alias subtitleColor: stored.subtitleColor
-    property alias textColor: stored.textColor
+    property color textColor: stored.textColor
 
     // Button colors
-    property alias buttonColor: stored.buttonColor
-    property alias buttonHoverColor: stored.buttonHoverColor
-    property alias buttonPressedColor: stored.buttonPressedColor
-    property alias buttonTextColor: stored.buttonTextColor
+    property color buttonColor: stored.buttonColor
 
     //animations
-    property alias animationsEnabled: stored.animationsEnabled
-    property alias animationSpeed: stored.animationSpeed
+    property int animationsEnabled: stored.animationsEnabled
+    property int animationSpeed: stored.animationSpeed
 
     //wallpaper
-    property alias wallpaperPath: stored.wallpaperPath
+    property string wallpaperPath: stored.wallpaperPath
 
     //Island / dock
-    property alias dockHeight: stored.dockHeight
-    property alias dockWidth: stored.dockWidth
-    property alias islandHeight: stored.islandHeight
-    property alias islandWidth: stored.islandWidth
-    property alias islandMargin: stored.islandMargin
-    property alias dockMargin: stored.dockMargin
+    property int dockHeight: stored.dockHeight
+    property int dockWidth: stored.dockWidth
+    property int islandHeight: stored.islandHeight
+    property int islandWidth: stored.islandWidth
+    property int islandMargin: stored.islandMargin
+    property int dockMargin: stored.dockMargin
 
     //corners n stuff
-    property alias cornerRadius: stored.cornerRadius
+    property int cornerRadius: stored.cornerRadius
 
     //persistant storage
     property var stored: Settings {
         id: stored
 
         category: "Appearance"
-        property color accentColor: "#F48C9E"
-        property color windowBackgroundColor: "#140C20"
-        property color contentBackgroundColor: "#1B1123"
-        property color sidebarBackgroundColor: "#201428"
-        property color topBarBackgroundColor: "#251329"
-        property color sectionBackgroundColor: "#302039"
+        property color accentColor: "#E68BAE"
+        property color highlightColor: "#F27DA7"
+
+        //backgrounds
+        property color windowColor: "#1B1124"
+        property color secondaryWindowColor: "#35213F"
 
         // Text colors
-        property color titleColor: "#F48C9E"
-        property color subtitleColor: "#F5C6A5"
-        property color textColor: "#E8DCEB"
+        property color textColor: "#e7c8e1"
 
         // Button colors
-        property color buttonColor: "#A34D83"
-        property color buttonHoverColor: "#B45E91"
-        property color buttonPressedColor: "#843E6C"
-        property color buttonTextColor: "#E8DCEB"
+        property color buttonColor: "#cf70c6"
 
         //animations
         property bool animationsEnabled: true
@@ -123,7 +105,6 @@ QtObject {
 
         //corners n stuff
         property int cornerRadius: 15
-        
     }
 
     //Restoring defaults
@@ -132,10 +113,29 @@ QtObject {
     }
 
     function restoreColors() {
-
+        stored.accentColor = defaultAccentColor
+        stored.highlightColor = defaultHighlightColor
+        stored.windowColor = defaultWindowColor
+        stored.secondaryWindowColor = defaultSecondaryWindowColor
+        stored.buttonColor = defaultButtonColor
+        stored.textColor = defaultTextColor
     }
 
     function restoreAnimations() {
 
+    }
+
+    function applyWallpaper() {
+        stored.wallpaperPath = wallpaperPath
+    }
+
+    function revertChanges() {
+        accentColor = stored.accentColor
+        highlightColor = stored.highlightColor
+        windowColor = stored.windowColor
+        secondaryWindowColor = stored.secondaryWindowColor
+        buttonColor = stored.buttonColor
+        textColor = stored.textColor
+        wallpaperPath = stored.wallpaperPath
     }
 }

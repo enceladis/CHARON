@@ -15,7 +15,7 @@ ApplicationWindow {
 
     title: "CHARON"
 
-    color: Config.windowBackgroundColor
+    color: "transparent"
 
     Button {
         text: "Open Settings"
@@ -73,5 +73,23 @@ ApplicationWindow {
         anchors.horizontalCenter: parent.horizontalCenter
         color: "transparent"
         Dock{}
+    }
+
+    Button {
+        width: 100
+        height: 50
+        x: 500
+        y: 500
+        
+        contentItem: Text {
+            text: "restore Defaults"
+            color: Config.textColor
+        }
+
+        background: Rectangle {
+            color: Config.buttonColor
+        }
+
+        onClicked: Config.restoreColors()
     }
 }

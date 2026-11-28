@@ -12,7 +12,7 @@ ApplicationWindow {
     visible: true
     title: "charon settings"
 
-    color: Config.windowBackgroundColor
+    color: Config.windowColor
 
     property string currentPage: "General"
 
@@ -24,14 +24,14 @@ ApplicationWindow {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 50
-            color: Config.topBarBackgroundColor
+            color: Qt.lighter(Config.secondaryWindowColor, 1.2)
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
 
                 text: "Settings"
-                color: Config.titleColor
+                color: Config.highlightColor
                 font.pixelSize: 20
                 font.bold: true
             }
@@ -45,10 +45,11 @@ ApplicationWindow {
                     width: 20
                     height: 20
                     radius: 10
-                    color: Config.accentColor
+                    color: Config.highlightColor
                 }
 
                 onClicked: {
+                    Config.revertChanges()
                     root.closeSettings()
                     root.currentPage = "General"
                 }
@@ -65,9 +66,9 @@ ApplicationWindow {
             Rectangle {
                 Layout.preferredWidth: 180
                 Layout.fillHeight: true
-                color: Config.sidebarBackgroundColor
+                color: Qt.darker(Config.secondaryWindowColor, 1.1)
                 border.width: 1
-                border.color: Qt.lighter(Config.sidebarBackgroundColor, 1.25)
+                border.color: Qt.lighter(Config.secondaryWindowColor, 1.2)
 
                 ScrollView {
                     id: sidebarScroll
@@ -88,10 +89,10 @@ ApplicationWindow {
                                 radius: 50
 
                                 color: parent.down
-                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
+                                    ? Qt.darker(Config.secondaryWindowColor, 1.3)
                                     : parent.hovered
-                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
-                                        : Config.sidebarBackgroundColor
+                                        ? Qt.lighter(Config.secondaryWindowColor, 1.1)
+                                        : Qt.darker(Config.secondaryWindowColor, 1.1)
 
                                 SelectionIndicator {
                                     selected: root.currentPage === "General"
@@ -100,7 +101,7 @@ ApplicationWindow {
 
                             contentItem: Text {
                                 text: parent.text
-                                color: Config.buttonTextColor
+                                color: Config.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -116,10 +117,10 @@ ApplicationWindow {
                                 radius: 50
 
                                 color: parent.down
-                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
+                                    ? Qt.darker(Config.secondaryWindowColor, 1.3)
                                     : parent.hovered
-                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
-                                        : Config.sidebarBackgroundColor
+                                        ? Qt.lighter(Config.secondaryWindowColor, 1.1)
+                                        : Qt.darker(Config.secondaryWindowColor, 1.1)
 
                                 SelectionIndicator {
                                     selected: root.currentPage === "Appearance"
@@ -128,7 +129,7 @@ ApplicationWindow {
 
                             contentItem: Text {
                                 text: parent.text
-                                color: Config.buttonTextColor
+                                color: Config.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -144,10 +145,10 @@ ApplicationWindow {
                                 radius: 50
 
                                 color: parent.down
-                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
+                                    ? Qt.darker(Config.secondaryWindowColor, 1.3)
                                     : parent.hovered
-                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
-                                        : Config.sidebarBackgroundColor
+                                        ? Qt.lighter(Config.secondaryWindowColor, 1.1)
+                                        : Qt.darker(Config.secondaryWindowColor, 1.1)
 
                                 SelectionIndicator {
                                     selected: root.currentPage === "Desktop"
@@ -156,7 +157,7 @@ ApplicationWindow {
 
                             contentItem: Text {
                                 text: parent.text
-                                color: Config.buttonTextColor
+                                color: Config.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -172,10 +173,10 @@ ApplicationWindow {
                                 radius: 50
 
                                 color: parent.down
-                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
+                                    ? Qt.darker(Config.secondaryWindowColor, 1.3)
                                     : parent.hovered
-                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
-                                        : Config.sidebarBackgroundColor
+                                        ? Qt.lighter(Config.secondaryWindowColor, 1.1)
+                                        : Qt.darker(Config.secondaryWindowColor, 1.1)
 
                                 SelectionIndicator {
                                     selected: root.currentPage === "Notifications"
@@ -184,7 +185,7 @@ ApplicationWindow {
 
                             contentItem: Text {
                                 text: parent.text
-                                color: Config.buttonTextColor
+                                color: Config.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -200,10 +201,10 @@ ApplicationWindow {
                                 radius: 50
 
                                 color: parent.down
-                                    ? Qt.darker(Config.sidebarBackgroundColor, 1.15)
+                                    ? Qt.darker(Config.secondaryWindowColor, 1.3)
                                     : parent.hovered
-                                        ? Qt.lighter(Config.sidebarBackgroundColor, 1.15)
-                                        : Config.sidebarBackgroundColor
+                                        ? Qt.lighter(Config.secondaryWindowColor, 1.1)
+                                        : Qt.darker(Config.secondaryWindowColor, 1.1)
 
                                 SelectionIndicator {
                                     selected: root.currentPage === "About"
@@ -212,7 +213,7 @@ ApplicationWindow {
 
                             contentItem: Text {
                                 text: parent.text
-                                color: Config.buttonTextColor
+                                color: Config.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -227,9 +228,9 @@ ApplicationWindow {
             Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                color: Config.contentBackgroundColor
+                color: Config.windowColor
                 border.width: 1
-                border.color: Qt.lighter(Config.contentBackgroundColor, 1.25)
+                border.color: Qt.lighter(Config.windowColor, 1.25)
 
                 StackLayout {
                     anchors.fill: parent
